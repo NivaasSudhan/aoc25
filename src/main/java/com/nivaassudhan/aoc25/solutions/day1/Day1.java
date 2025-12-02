@@ -13,6 +13,10 @@ public class Day1 {
         part1();
         System.out.println();
         part2();
+
+        System.out.println();
+        System.out.println("============================");
+        System.out.println();
     }
 
     private static int checkIfDialStateIsZero(int currentVal, int passcode){

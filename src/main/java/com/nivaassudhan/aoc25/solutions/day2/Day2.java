@@ -17,6 +17,10 @@ public class Day2 {
         part1();
         System.out.println();
         part2();
+
+        System.out.println();
+        System.out.println("============================");
+        System.out.println();
     }
 
     private static long sumOfInvalidIdsInRange(long first, long last){
@@ -50,7 +54,7 @@ public class Day2 {
     public static void part1(){
         System.out.println("Part 1");
 
-        System.out.println("list "+ranges.toString());
+
 
         long sumTotalInvalidIds = 0;
 
@@ -67,7 +71,7 @@ public class Day2 {
     public static void part2(){
         System.out.println("Part 2");
 
-        System.out.println("list "+ranges.toString());
+
 
         long sumTotalInvalidIds = 0;
 
