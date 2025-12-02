@@ -3,6 +3,7 @@ package utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,5 +32,14 @@ public class FileUtil {
             // in the calling code.
             return Collections.emptyList();
         }
+    }
+
+    public static ArrayList<String> readCSV(String filename){
+        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> inputLines = (ArrayList<String>) readInputFile(filename);
+        inputLines.forEach((String entry)->{
+            list.addAll(List.of(entry.split(",")));
+        });
+        return list;
     }
 }
