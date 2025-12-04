@@ -19,13 +19,13 @@ public class Day1 {
         System.out.println();
     }
 
-    private static int checkIfDialStateIsZero(int currentVal, int passcode){
-        if(currentVal==0)
+    private static int checkIfDialStateIsZero(int currentVal, int passcode) {
+        if (currentVal == 0)
             ++passcode;
         return passcode;
     }
 
-    public static void part1(){
+    public static void part1() {
 
         System.out.println("part1:");
         ArrayList<String> list = (ArrayList<String>) utils.FileUtil.readInputFile("src/main/resources/day1/input.txt");
@@ -33,29 +33,29 @@ public class Day1 {
         for (int i = 0; i <= 99; i++) {
             dial.add(i);
         }
-//        dial.printList();
+        // dial.printList();
 
         Node current = dial.head;
 
-        for(int start = 0; start<50; start++){
+        for (int start = 0; start < 50; start++) {
             current = current.next;
         }
 
-//        System.out.println(current.value);
+        // System.out.println(current.value);
 
         int passcode = 0;
         int totalMoves = 0;
 
-        for(String move : list){
+        for (String move : list) {
             totalMoves++;
-//            System.out.println("move: "+move);
+            // System.out.println("move: "+move);
             char direction = move.strip().charAt(0);
             int magnitude = Integer.parseInt(move.strip().substring(1));
 
-            for(int i = 0; i < magnitude; i++){
-                if (direction== 'L') {
+            for (int i = 0; i < magnitude; i++) {
+                if (direction == 'L') {
                     current = current.prev;
-                }else if (direction=='R') {
+                } else if (direction == 'R') {
                     current = current.next;
                 }
             }
@@ -63,8 +63,8 @@ public class Day1 {
             passcode = checkIfDialStateIsZero(current.value, passcode);
         }
 
-        System.out.println("passcode: "+ passcode);
-        System.out.println("totalMoves: "+ totalMoves);
+        System.out.println("passcode: " + passcode);
+        System.out.println("totalMoves: " + totalMoves);
     }
 
     public static void part2() {
@@ -74,36 +74,36 @@ public class Day1 {
         for (int i = 0; i <= 99; i++) {
             dial.add(i);
         }
-//        dial.printList();
+        // dial.printList();
 
         Node current = dial.head;
 
-        for(int start = 0; start<50; start++){
+        for (int start = 0; start < 50; start++) {
             current = current.next;
         }
 
-//        System.out.println(current.value);
+        // System.out.println(current.value);
 
         int passcode = 0;
         int totalMoves = 0;
 
-        for(String move : list){
+        for (String move : list) {
             totalMoves++;
-//            System.out.println("move: "+move);
+            // System.out.println("move: "+move);
             char direction = move.strip().charAt(0);
             int magnitude = Integer.parseInt(move.strip().substring(1));
 
-            for(int i = 0; i < magnitude; i++){
-                if (direction== 'L') {
+            for (int i = 0; i < magnitude; i++) {
+                if (direction == 'L') {
                     current = current.prev;
-                }else if (direction=='R') {
+                } else if (direction == 'R') {
                     current = current.next;
                 }
                 passcode = checkIfDialStateIsZero(current.value, passcode);
             }
         }
 
-        System.out.println("passcode: "+ passcode);
-        System.out.println("totalMoves: "+ totalMoves);
+        System.out.println("passcode: " + passcode);
+        System.out.println("totalMoves: " + totalMoves);
     }
 }

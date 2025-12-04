@@ -12,6 +12,7 @@ public class FileUtil {
     /**
      * Reads all lines from a file and returns them as a List of Strings.
      * * @param filename The name of the file to read (e.g., "input.txt").
+     * 
      * @return A List<String> containing all lines, or an empty List on error.
      */
     public static List<String> readInputFile(String filename) {
@@ -28,16 +29,17 @@ public class FileUtil {
             System.err.println("ERROR: Could not read file: " + filename);
             e.printStackTrace();
 
-            // Return an empty, unmodifiable list on failure to prevent NullPointerExceptions
+            // Return an empty, unmodifiable list on failure to prevent
+            // NullPointerExceptions
             // in the calling code.
             return Collections.emptyList();
         }
     }
 
-    public static ArrayList<String> readCSV(String filename){
+    public static ArrayList<String> readCSV(String filename) {
         ArrayList<String> list = new ArrayList<>();
         ArrayList<String> inputLines = (ArrayList<String>) readInputFile(filename);
-        inputLines.forEach((String entry)->{
+        inputLines.forEach((String entry) -> {
             list.addAll(List.of(entry.split(",")));
         });
         return list;
